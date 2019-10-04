@@ -1,16 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    compileSdkVersion 26
+    buildToolsVersion "24.0.3"
+
 
     defaultConfig {
         applicationId "app.com.mobileassignment"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        testInstrumentationRunner = 'android.support.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
@@ -20,17 +22,29 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-annotations:26.1.0'
+    }
+}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'com.fasterxml.jackson.core:jackson-core:2.5.3'
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.3'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.3'
-    compile 'com.google.android.gms:play-services-maps:9.6.1'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:support-annotations:26.1.0'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.5.3'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.5.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.5.3'
+    implementation 'com.google.android.gms:play-services-maps:9.6.1'
 
 
-    testCompile 'junit:junit:4.12'
-    testCompile "org.mockito:mockito-core:2.1.0"
-    testCompile "org.robolectric:robolectric:3.1.2"
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.mockito:mockito-core:2.1.0"
+    testImplementation "org.robolectric:robolectric:3.1.2"
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
 
 }
