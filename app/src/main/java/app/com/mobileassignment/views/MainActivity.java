@@ -3,7 +3,6 @@ package app.com.mobileassignment.views;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -16,6 +15,7 @@ import android.widget.ProgressBar;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.appcompat.app.AppCompatActivity;
 import app.com.mobileassignment.views.adapters.CityAdapter;
 import app.com.mobileassignment.R;
 import app.com.mobileassignment.model.City;
