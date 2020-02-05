@@ -45,5 +45,4 @@ android {
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 }
-//testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
